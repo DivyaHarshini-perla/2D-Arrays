@@ -1,0 +1,184 @@
+import java.lang.*;
+import java.util.*;
+public class Main {
+  public static void rowWisePrint(int mat[][]){
+    int n = mat.length;
+    int m = mat[0].length;
+    for(int i=0;i<n;i++)
+    {
+      for(int j=0;j<m;j++)
+      {
+        System.out.print(mat[i][j]+" ");
+      }
+      System.out.println();
+    }
+  }
+  public static void colWisePrint(int mat[][]){
+    int n = mat.length;
+    int m = mat[0].length;
+    for(int j=0;j<m;j++)
+    {
+      for(int i=0;i<n;i++)
+      {
+        System.out.print(mat[i][j]+" ");
+      }
+      System.out.println();
+    }
+  }
+  public static void waveForm(int mat[][])
+  {
+    int n = mat.length;
+    int m = mat[0].length;
+    for(int i=0;i<n;i++)
+    {
+      if(i%2==0)
+      {
+        for(int j=0;j<m;j++)
+        {
+          System.out.print(mat[i][j]+ " ");
+        }
+        System.out.println();
+      }
+      else
+      {
+        for(int j=m-1;j>=0;j--)
+        {
+          System.out.print(mat[i][j]+" ");
+        }
+        System.out.println();
+      }
+    }
+  }
+  public static void matrixSum(int mat[][])
+  {
+    int n = mat.length;
+    int m = mat[0].length;
+    int sum=0;
+    for(int i=0;i<n;i++)
+    {
+      for(int j=0;j<m;j++)
+      {
+        sum  = sum + mat[i][j];
+      }
+    }
+    System.out.print(sum);
+  }
+  public static int[] rowSum(int mat[][])
+  {
+    int n = mat.length;
+    int m = mat[0].length;
+    int sum=0;
+    int ans [] = new int [n];
+    for(int i=0;i<n;i++)
+    {
+      for(int j=0;j<m;j++)
+      {
+        sum = sum+mat[i][j];
+      }
+      ans[i]=sum;
+    }
+    return ans;
+  }
+  public static int [] colWiseMax(int mat[][])
+  {
+    int n= mat.length;
+    int m = mat[0].length;
+    int ans [] = new int [m];
+    for(int j=0;j<m;j++)
+    {
+      int max=mat[0][j];
+      for(int i=0;i<n;i++)
+      {
+        if(mat[i][j]>max)
+        {
+          max=mat[i][j];
+        }
+      }
+      ans[j] =  max;
+    }
+    return ans;
+  }
+  public static void main(String[] args) {
+      // int arr [][] = new int [2][2];
+      // arr [0][0] = 1;
+      // arr [0][1] = 9;
+      // arr [1][0] = 8;
+      // arr [1][1] = 6;
+      //initializing 2D Arrays
+      //int [][] arr = {{6,7,6},{8,9,3}};
+      // System.out.print(arr[0][0]+" "); 
+      // System.out.print(arr[0][1]+" ");
+      // System.out.print(arr[0][2]+" ");
+      //printing elements row by row
+      // for(int i=0;i<2;i++)
+      // {
+      //   for(int j=0;j<3;j++)
+      //   {
+      //     System.out.print(arr[i][j]+" ");
+      //   }
+      //   System.out.println();
+      // }
+      //To print elements column by column
+      // for(int i=0;i<3;i++)
+      // {
+      //   for(int j=0;j<2;j++)
+      //   {
+      //     System.out.print(arr[j][i]+" ");
+      //   }
+      //   System.out.println();
+      // }Scaler
+      // for(int i=0;i<1;i++)
+      // {
+      //   for(int j=0;j<3;j++)
+      //   {
+      //     System.out.print(arr[i][j]+" ");
+      //   }
+      // }
+      //another way using only one loop 0 0, 0 1, 0 2, 0 3, 0 4, .. 0 m-1 here row number is common but not col so we are iterting col value
+      // for(int j=0;j<3;j++)
+      // {
+      //   System.out.print(arr[0][j]+" ");
+      // }
+      //way to print first column
+      // for(int i=0;i<2;i++)
+      // {
+      //   System.out.print(arr[i][0]+" ");
+      // }
+      //printing elements column by column
+      // for(int j=0;j<3;j++)
+      // {
+      //   for(int i=0;i<2;i++)
+      //   {
+      //     System.out.print(arr[i][j]+" ");
+      //   }
+      //   System.out.println();
+      // }
+      //Take input from the user 
+      Scanner sc = new Scanner(System.in);
+      int n = sc.nextInt();
+      int m = sc.nextInt();
+      int mat [][] = new int [n][m];
+      for(int i=0;i<n;i++)
+      {
+        for(int j=0;j<m;j++)
+        {
+          mat[i][j] = sc.nextInt();
+        }
+      }
+      // rowWisePrint(mat);
+      // colWisePrint(mat);
+      //waveForm(mat);
+      //matrixSum(mat);
+      // int ans[] = rowSum(mat);
+      // for(int i=0;i<ans.length;i++)
+      // {
+      //   System.out.print(ans[i]+" ");
+      // }
+      int ans [] = colWiseMax(mat);
+      for(int i=0;i<ans.length;i++)
+      {
+        System.out.print(ans[i]+" ");
+      }
+
+  }
+}
